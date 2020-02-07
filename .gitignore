@@ -1,0 +1,4 @@
+.idea
+venv
+activate-venv.sh
+__pycache__
