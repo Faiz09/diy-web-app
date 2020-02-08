@@ -8,13 +8,9 @@ class Seeder:
         pass
 
     def seed(self):
-        user_seeder()
-        post_seeder()
+        return user_posts()
 
 
-def user_seeder():
-    User(name='wendy', fullname='Wendy Williams', nickname='windy').create()
-
-
-def post_seeder():
-    Post(title='Hello World', body='A post created by windy, We have to define a relation', created_at=Time().now()).create()
+def user_posts():
+    return User(name='wendy', fullname='Wendy Williams', nickname='windy').create()
+    # Post(title='Hello World', body='A post created by windy, We have to define a relation', created_at=Time().now()).create()

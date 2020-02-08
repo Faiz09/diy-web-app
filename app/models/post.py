@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, String, Text, DateTime
+from sqlalchemy import Column, Integer, String, Text, DateTime, ForeignKey
 from app.models.base import AlchemyBase
 from app.core.database.connection import Connection
 
@@ -9,6 +9,7 @@ class Post(Connection, AlchemyBase):
     title = Column(String(500))
     body = Column(Text)
     created_at = Column(DateTime)
+    user_id = Column(Integer, ForeignKey('users.id'))
 
     def __init__(self, id = None, title = '', body = '', created_at = ''):
         self.id = id

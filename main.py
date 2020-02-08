@@ -30,7 +30,7 @@ def run_migrations(option):
 
 
 def run_seeders():
-    Seeder().seed()
+    return Seeder().seed()
 
 
 if __name__ == '__main__':
@@ -39,7 +39,7 @@ if __name__ == '__main__':
     if args.m is not False:
         run_migrations(args.m)
     elif args.s is not None:
-        run_seeders()
+        print(run_seeders().id)
     else:
         lunch_app()
 
