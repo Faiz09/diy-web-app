@@ -3,9 +3,7 @@ import sys
 from werkzeug import Response, Request
 from werkzeug.routing import Map
 from werkzeug.serving import run_simple
-from exceptions import InvalidMethodException
-from controllers.home_controller import HomeController
-from controllers.post_controller import PostController
+from app.core.exceptions import InvalidMethodException
 
 
 class Server:

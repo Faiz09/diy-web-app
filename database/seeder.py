@@ -1,6 +1,7 @@
-from models.user import User
-from models.post import Post
-from datetime import datetime
+from app.models.user import User
+from app.models.post import Post
+from app.core.helpers.time import Time
+
 
 class Seeder:
     def __init__(self):
@@ -16,4 +17,4 @@ def user_seeder():
 
 
 def post_seeder():
-    Post(title='Hello World', body='A post created by windy, We have to define a relation', created_at=datetime.now().strftime('%Y-%m-%d %H:%M:%S')).create()
+    Post(title='Hello World', body='A post created by windy, We have to define a relation', created_at=Time().now()).create()

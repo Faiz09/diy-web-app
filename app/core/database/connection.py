@@ -2,6 +2,7 @@ from sqlalchemy import create_engine
 from config.config import Config
 from sqlalchemy.orm import sessionmaker
 
+
 class Connection:
     session = None
     engine = None

@@ -1,5 +1,5 @@
-from models.user import User
-from models.post import Post
+from app.models.user import User
+from app.models.post import Post
 
 
 class DatabaseMigration:

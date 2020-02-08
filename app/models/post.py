@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String, Text, DateTime
-from models.base import AlchemyBase
-from database.connection import Connection
+from app.models.base import AlchemyBase
+from app.core.database.connection import Connection
 
 
 class Post(Connection, AlchemyBase):

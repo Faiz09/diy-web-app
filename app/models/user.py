@@ -1,6 +1,6 @@
 from sqlalchemy import Column, Integer, String
-from models.base import AlchemyBase
-from database.connection import Connection
+from app.models.base import AlchemyBase
+from app.core.database.connection import Connection
 
 
 class User(Connection, AlchemyBase):
