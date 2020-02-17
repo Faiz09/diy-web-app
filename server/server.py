@@ -4,6 +4,8 @@ from werkzeug import Response, Request
 from werkzeug.routing import Map
 from werkzeug.serving import run_simple
 from app.core.exceptions import InvalidMethodException
+from app.controllers.home_controller import HomeController
+from app.controllers.post_controller import PostController
 
 
 class Server:

@@ -12,5 +12,10 @@ class Seeder:
 
 
 def user_posts():
-    return User(name='wendy', fullname='Wendy Williams', nickname='windy').create()
-    # Post(title='Hello World', body='A post created by windy, We have to define a relation', created_at=Time().now()).create()
+    user = User(first_name='Wendy', last_name='Williams', email='windy@gmail.com').create()
+
+    user.posts.append(
+        Post(title='Hello World', body='A post created by windy, We have to define a relation', created_at=Time().now(), updated_at=Time().now())
+    )
+
+    return user
