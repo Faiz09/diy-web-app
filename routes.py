@@ -1,5 +1,6 @@
 from app.core.routes.routes import home_routes as hr
 from app.post.routes.routes import post_routes as pr
+from app.user.routes.routes import user_routes as ur
 
 
 class Routes:
@@ -19,4 +20,4 @@ class Routes:
         return self.final_list
 
 
-routes = Routes(hr, pr).get_routes()
+routes = Routes(hr, pr, ur).get_routes()

@@ -5,6 +5,7 @@ from app.core.database.connection import Connection
 from app.core.helpers.time import Time
 from app.post.model.post import Post
 
+
 class User(Connection, AlchemyBase):
     __tablename__ = 'users'
     id = Column(Integer, primary_key=True)
@@ -57,5 +58,14 @@ class User(Connection, AlchemyBase):
         self.session.add(self)
         self.session.commit()
         return self
+
+    def all(self):
+        users = self.session.query(User).all()
+        list = []
+        for u in users:
+            list.append(
+                u.to_json()
+            )
+        return list
 
 
