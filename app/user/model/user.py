@@ -3,6 +3,7 @@ from sqlalchemy import Column, Integer, String, DateTime
 from app.core.models.base import AlchemyBase
 from app.core.database.connection import Connection
 from app.core.helpers.time import Time
+from app.post.model.post import Post
 
 class User(Connection, AlchemyBase):
     __tablename__ = 'users'
@@ -12,7 +13,7 @@ class User(Connection, AlchemyBase):
     email = Column(String(200))
     created_at = Column(DateTime())
     updated_at = Column(DateTime())
-    posts = relationship('Post')
+    posts = relationship(Post)
 
     def __init__(self, id=None, first_name='', last_name='', email='', created_at = '', updated_at = ''):
         self.id = id
@@ -36,6 +37,21 @@ class User(Connection, AlchemyBase):
         return "<User(first_name='%s', last_name='%s', email='%s')>" % (
             self.first_name, self.last_name, self.email
         )
+
+    def to_json(self):
+        u = self.__dict__
+        posts = self.posts
+        post_list = []
+        for p in posts:
+            post_list.append(p.to_json())
+
+        return {
+            'id': u['id'],
+            'first_name': u['first_name'],
+            'last_name': u['last_name'],
+            'email': u['email'],
+            'posts': post_list,
+        }
 
     def create(self):
         self.session.add(self)

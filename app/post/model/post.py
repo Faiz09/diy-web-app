@@ -25,6 +25,16 @@ class Post(Connection, AlchemyBase):
             self.title, self.body, self.created_at
         )
 
+    def to_json(self):
+        p = self.__dict__
+        return {
+            'id': p['id'],
+            'title': p['title'],
+            'body': p['body'],
+            'created_at': p['created_at'].strftime("%Y-%m-%d %H:%M"),
+            'updated_at': p['updated_at'].strftime("%Y-%m-%d %H:%M"),
+        }
+
     def create(self):
         self.session.add(self)
         self.session.commit()

@@ -1,5 +1,5 @@
 from sqlalchemy import create_engine
-from config.config import Config
+from config.config import CONFIG
 from sqlalchemy.orm import sessionmaker
 
 
@@ -13,6 +13,6 @@ class Connection:
         super().__init__()
 
     def connect(self):
-        db_config = Config().database()
+        db_config = CONFIG['database']
         url = "mysql://{}:{}@{}/{}".format(db_config['user'], db_config['password'], db_config['host'], db_config['database'])
         return create_engine(url, echo=False)

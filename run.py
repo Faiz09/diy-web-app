@@ -2,7 +2,7 @@
 
 from bootstrap.server import Server
 from bootstrap.cli import Cli
-from database.seeder import Seeder
+from database.seeder.seeder import Seeder
 
 if __name__ == '__main__':
     args = Cli().listen()
