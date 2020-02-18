@@ -1,4 +1,5 @@
 .idea
 venv
-activate-venv.sh
+bash/activate-venv.sh
 __pycache__
+test.py

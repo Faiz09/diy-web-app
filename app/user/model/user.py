@@ -1,6 +1,6 @@
 from sqlalchemy.orm import relationship
 from sqlalchemy import Column, Integer, String, DateTime
-from app.models.base import AlchemyBase
+from app.core.models.base import AlchemyBase
 from app.core.database.connection import Connection
 from app.core.helpers.time import Time
 

@@ -1,11 +1,11 @@
 from sqlalchemy import Column, Integer, String, Text, DateTime, ForeignKey
-from app.models.base import AlchemyBase
+from app.core.models.base import AlchemyBase
 from app.core.database.connection import Connection
 
 
 class Post(Connection, AlchemyBase):
     __tablename__ = 'posts'
-    id = Column(primary_key=True)
+    id = Column(Integer, primary_key=True)
     title = Column(String(200))
     body = Column(Text())
     created_at = Column(DateTime())
