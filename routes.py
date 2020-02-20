@@ -1,6 +1,6 @@
-from app.core.routes.routes import home_routes as hr
-from app.post.routes.routes import post_routes as pr
-from app.user.routes.routes import user_routes as ur
+from app.core.routes.routes import routes as hr
+from app.post.routes.routes import routes as pr
+from app.user.routes.routes import routes as ur
 
 
 class Routes:

@@ -2,7 +2,7 @@ from werkzeug.routing import Rule
 from app.post.controllers.post_controller import PostController
 from app.core.response.Response import Response
 
-post_routes = [
+routes = [
 
     Rule('/post/<id>', endpoint=PostController().show_post),
 
