@@ -15,7 +15,7 @@ class Server:
 
         endpoint, values = self.map.bind_to_environ(request.environ).match()
 
-        return Response(endpoint(endpoint, request, **values))(environ, start_response)
+        return Response(endpoint(request, **values))(environ, start_response)
 
     def run(self):
         run_simple('127.0.0.1', 5000, self.handle, use_debugger=True, use_reloader=True)
