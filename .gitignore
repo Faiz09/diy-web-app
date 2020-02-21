@@ -3,3 +3,4 @@ venv
 bash/activate-venv.sh
 __pycache__
 test.py
+.pytest_cache

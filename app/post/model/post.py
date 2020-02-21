@@ -1,9 +1,9 @@
 from sqlalchemy import Column, Integer, String, Text, DateTime, ForeignKey
-from app.core.models.base import AlchemyBase
-from app.core.database.connection import Connection
+from app.core.helpers.time import Time
+from app.core.models.base import AlchemyBase, Base
 
 
-class Post(Connection, AlchemyBase):
+class Post(Base, AlchemyBase):
     __tablename__ = 'posts'
     id = Column(Integer, primary_key=True)
     title = Column(String(200))
@@ -16,8 +16,8 @@ class Post(Connection, AlchemyBase):
         self.id = id
         self.title = title
         self.body = body
-        self.created_at = created_at
-        self.updated_at = updated_at
+        self.created_at = created_at if created_at != '' else Time().now()
+        self.updated_at = updated_at if updated_at != '' else Time().now()
         super().__init__()
 
     def __repr__(self):
@@ -25,7 +25,7 @@ class Post(Connection, AlchemyBase):
             self.title, self.body, self.created_at
         )
 
-    def to_json(self):
+    def json_rep(self):
         p = self.__dict__
         return {
             'id': p['id'],
@@ -34,7 +34,3 @@ class Post(Connection, AlchemyBase):
             'created_at': p['created_at'].strftime("%Y-%m-%d %H:%M"),
             'updated_at': p['updated_at'].strftime("%Y-%m-%d %H:%M"),
         }
-
-    def create(self):
-        self.session.add(self)
-        self.session.commit()

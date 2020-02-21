@@ -9,5 +9,5 @@ class UserController:
 
     def index(self, req: Request):
         return json.dumps({
-            'users': User().all()
+            'users': User().all().to_json()
         })
