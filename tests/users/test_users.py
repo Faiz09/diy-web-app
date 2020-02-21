@@ -32,6 +32,6 @@ class TestUsersClass:
     @pytest.mark.live
     def test_delete_user(self):
         u = User().where(User.email, 'john@america.com').first()
-        u = User().delete(u.id)
+        u = User().delete_by_id(u.id)
         assert u == 1
 

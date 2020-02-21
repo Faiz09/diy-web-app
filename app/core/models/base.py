@@ -51,7 +51,12 @@ class Base:
     def find(self, id):
         return self.session.query(self.__class__).get(id)
 
-    def delete(self, id):
+    def delete_by_id(self, id):
         self.session.query(self.__class__).filter_by(id=id).delete()
         self.session.commit()
-        return 1
+        return True
+
+    def delete_where(self, field, value):
+        self.session.query(self.__class__).filter(field == value).delete()
+        self.session.commit()
+        return True
