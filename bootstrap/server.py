@@ -5,7 +5,6 @@ from werkzeug.middleware.shared_data import SharedDataMiddleware
 from werkzeug.routing import Map
 from werkzeug.serving import run_simple
 from routes import routes
-from werkzeug.exceptions import NotFound
 
 
 class Server:
