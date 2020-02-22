@@ -22,18 +22,7 @@ class Base:
         return create_engine(url, echo=False)
 
     def all(self):
-        self.rows = self.session.query(self.__class__).all()
-        return self
-
-    def get(self):
-        return self.rows
-
-    def to_json(self):
-        items = []
-        for item in self.rows:
-            items.append(item.json_rep())
-
-        return items
+        return self.session.query(self.__class__).all()
 
     def create(self):
         self.session.add(self)

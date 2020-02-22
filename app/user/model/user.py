@@ -15,7 +15,7 @@ class User(Base, AlchemyBase):
     updated_at = Column(DateTime())
     posts = relationship(Post)
 
-    def __init__(self, id=None, first_name='', last_name='', email='', created_at = '', updated_at = ''):
+    def __init__(self, id=None, first_name='', last_name='', email='', created_at='', updated_at=''):
         self.id = id
         self.first_name = first_name
         self.last_name = last_name
@@ -25,25 +25,11 @@ class User(Base, AlchemyBase):
         super().__init__()
 
     def __repr__(self):
-        return "<User(first_name='%s', last_name='%s', email='%s')>" % (
-            self.first_name, self.last_name, self.email
-        )
-
-    def json_rep(self):
-        u = self.__dict__
-        # posts = self.posts
-        # post_list = []
-        # for p in posts:
-        #     post_list.append(p.to_json())
-
-        return {
-            'id': u['id'],
-            'first_name': u['first_name'],
-            'last_name': u['last_name'],
-            'email': u['email'],
-            # 'posts': post_list,
-        }
-
-
-
+        return "{}".format({
+            'id': self.id,
+            'first_name': self.first_name,
+            'last_name': self.last_name,
+            'email': self.email,
+            'posts': self.posts,
+        })
 

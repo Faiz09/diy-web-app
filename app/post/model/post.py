@@ -21,16 +21,10 @@ class Post(Base, AlchemyBase):
         super().__init__()
 
     def __repr__(self):
-        return "<Post(title='%s', body='%s', created_at='%s')>" % (
-            self.title, self.body, self.created_at
-        )
-
-    def json_rep(self):
-        p = self.__dict__
-        return {
-            'id': p['id'],
-            'title': p['title'],
-            'body': p['body'],
-            'created_at': p['created_at'].strftime("%Y-%m-%d %H:%M"),
-            'updated_at': p['updated_at'].strftime("%Y-%m-%d %H:%M"),
-        }
+        return "{}".format({
+            'id': self.id,
+            'title': self.title,
+            'body': self.body,
+            'created_at': self.created_at.strftime("%Y-%m-%d %H:%M"),
+            'updated_at': self.updated_at.strftime("%Y-%m-%d %H:%M"),
+        })

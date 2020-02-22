@@ -1,4 +1,4 @@
-import json
+import jsonpickle
 
 
 class Response:
@@ -7,14 +7,14 @@ class Response:
 
     @staticmethod
     def success(data={}, code=200):
-        return json.dumps({
+        return jsonpickle.encode({
             'data': data,
             'code': code
         })
 
     @staticmethod
     def error(message='', code=500):
-        return json.dumps({
+        return jsonpickle.encode({
             'message': message,
             'code': code
         })

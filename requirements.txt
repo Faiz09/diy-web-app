@@ -5,3 +5,4 @@ Werkzeug==1.0.0
 alembic==1.4.0
 Faker==4.0.1
 pytest==5.3.5
+jsonpickle==1.3
