@@ -6,9 +6,10 @@ class Response:
         pass
 
     @staticmethod
-    def success(data={}, code=200):
+    def success(data={}, message = 'Success', code=200):
         return jsonpickle.encode({
             'data': data,
+            'message': message,
             'code': code
         })
 

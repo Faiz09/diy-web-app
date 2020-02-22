@@ -16,7 +16,10 @@ class Server:
     def handle(self, environ, start_response):
         request = Request(environ)
         endpoint, values = self.map.bind_to_environ(request.environ).match()
-        return Response(endpoint(request, **values))(environ, start_response)
+        response = Response(endpoint(request, **values), headers=[(
+            'Content-type', 'application/json'
+        )])
+        return response(environ, start_response)
 
     def run(self):
         run_simple('127.0.0.1', 5000, SharedDataMiddleware(self.handle, {

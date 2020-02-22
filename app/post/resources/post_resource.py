@@ -11,4 +11,7 @@ class PostResource:
         return {
             'id': self.post.id,
             'title': self.post.title,
+            'body': self.post.body,
+            'created_at': self.post.created_at.strftime("%Y-%m-%d %H:%M"),
+            'updated_at': self.post.updated_at.strftime("%Y-%m-%d %H:%M"),
         }
