@@ -1,7 +1,14 @@
-DIY
+Do it yourself Python Web App.
 --
 
-A diy web app based on werkzeug
+It is built on:
+- Werkzeug
+- SQLAlchemy
+- jsonpickle
+- alembic
+- Faker
+- pytest
+
 
 how to install?
 1. create a database, and put database details on config/config.py
