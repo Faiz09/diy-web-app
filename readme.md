@@ -12,3 +12,7 @@ It is built on:
 
 how to install?
 1. create a database, and put database details on config/config.py
+
+todo:
+- request validation
+- 

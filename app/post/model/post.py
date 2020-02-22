@@ -12,7 +12,7 @@ class Post(Base, AlchemyBase):
     updated_at = Column(DateTime())
     user_id = Column(Integer, ForeignKey('users.id'))
 
-    def __init__(self, id = None, title = '', body = '', created_at = '', updated_at = ''):
+    def __init__(self, id=None, title='', body='', created_at='', updated_at=''):
         self.id = id
         self.title = title
         self.body = body
