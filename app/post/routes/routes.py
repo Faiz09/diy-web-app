@@ -1,6 +1,6 @@
 from werkzeug.routing import Rule
 from app.post.controllers.post_controller import PostController
-from app.core.response.Response import Response
+from app.core.response.response import Response
 
 routes = [
     Rule('/post', methods=['GET'], endpoint=PostController().index),
@@ -10,6 +10,6 @@ routes = [
     Rule('/post/<id>', methods=['DELETE'], endpoint=PostController().delete),
     Rule('/post/lambda', methods=['GET'], endpoint=lambda r: Response.success({
         'purpose': 'This demonstrates lambda function in routes..'
-    })),
+    }).send()),
 
 ]

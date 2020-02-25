@@ -5,6 +5,8 @@ from werkzeug.middleware.shared_data import SharedDataMiddleware
 from werkzeug.routing import Map
 from werkzeug.serving import run_simple
 from routes import routes
+from app.core.response.json_response import JsonResponse
+from app.core.response.view_response import ViewResponse
 
 
 class Server:
@@ -16,9 +18,13 @@ class Server:
     def handle(self, environ, start_response):
         request = Request(environ)
         endpoint, values = self.map.bind_to_environ(request.environ).match()
-        response = Response(endpoint(request, **values), headers=[(
-            'Content-type', 'application/json'
-        )])
+        response = endpoint(request, **values)
+
+        if not isinstance(response, JsonResponse) and not isinstance(response, ViewResponse):
+            response = Response('')
+            return response(environ, start_response)
+
+        response = Response(response.send(), headers=response.headers, mimetype=response.mime_type)
         return response(environ, start_response)
 
     def run(self):

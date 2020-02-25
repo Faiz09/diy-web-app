@@ -1,6 +1,6 @@
 from werkzeug import Request
 from app.core.exceptions.exceptions import ResourceNotFoundException
-import jsonpickle
+from app.core.response.response import Response
 
 
 class CoreController:
@@ -15,6 +15,4 @@ class CoreController:
         return res
 
     def welcome(self, req: Request):
-        return jsonpickle.encode({
-            'message': 'welcome',
-        })
+        return Response.render('home.html', message='Some Message', title='Page title')

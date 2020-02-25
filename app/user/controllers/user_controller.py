@@ -1,5 +1,5 @@
 from werkzeug import Request
-from app.core.response.Response import Response
+from app.core.response.response import Response
 from app.user.model.user import User
 from app.user.resources import UserResourceCollection, UserResource
 from app.core.controllers import CoreController
