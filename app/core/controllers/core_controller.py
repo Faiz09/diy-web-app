@@ -15,4 +15,4 @@ class CoreController:
         return res
 
     def welcome(self, req: Request):
-        return Response.render('home.html', message='Some Message', title='Page title')
+        return Response.render('home.html', intro='Built in python..', title='A Diy web app!')
