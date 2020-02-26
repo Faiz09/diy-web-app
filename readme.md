@@ -1,26 +1,30 @@
 A do it yourself python web application framework.
 --
+**Werkzeug, SQLAlchemy, jsonpickle, alembic, Faker, pytest, Jinja2**
 
-Setup:
+**Setup:**
 - setup venv
 - `pip install -r requirements.txt`
 
-It is built on:
-- Werkzeug
-- SQLAlchemy
-- jsonpickle
-- alembic
-- Faker
-- pytest
+**Running the app:**
+        
+    python run.py
+    
 
+**Application structure:**
 
-how to install?
-1. create a database, and put database details on config/config.py
+The business models each take up a package under app
 
-todo:
-- request validation
-- write a setup flow
-- python diy run, migrate, seed
-- add feature tests
-- home page
-- 404 page
++ app
+    + core
+        + controllers
+        + routes
+        + models
+        + --
+    + user
+        //
+    + post
+        //
+        
+
+**Add an example business model**

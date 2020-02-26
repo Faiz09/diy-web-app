@@ -1,5 +1,5 @@
 from werkzeug import Request
-from app.core.response.response import Response
+from app.core import Response
 from app.post.model.post import Post
 from app.post.resources import PostResource, PostResourceCollection
 from app.core.controllers import CoreController
