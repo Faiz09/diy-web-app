@@ -1,5 +1,9 @@
-Do it yourself Python Web App.
+A do it yourself python web application framework.
 --
+
+Setup:
+- setup venv
+- `pip install -r requirements.txt`
 
 It is built on:
 - Werkzeug
