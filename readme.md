@@ -1,4 +1,4 @@
-A do it yourself python web application framework.
+A do it yourself python web application framework. [experimental]
 --
 **Werkzeug, SQLAlchemy, jsonpickle, alembic, Faker, pytest, Jinja2**
 
